@@ -5,8 +5,8 @@ import (
 	"io"
 	"net/http"
 	"os"
-
-	"github.com/newrelic/go-agent"
+"newrelixdemo/wapii"
+	newrelic "github.com/newrelic/go-agent"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -14,6 +14,9 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	var server = http.NewServeMux()
+	var apiServer = apii.NewApiServer()
+	server.Handle("/api/", http.StripPrefix("/api", apiServer))
 	// Create a config.  You need to provide the desired application name
 	// and your New Relic license key.
 	cfg := newrelic.NewConfig("Example App", "101549ce7776071f41c36184c4e7ded4df588948")
