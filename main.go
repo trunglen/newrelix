@@ -162,7 +162,7 @@ func mustGetEnv(key string) string {
 }
 
 func main() {
-	cfg := newrelic.NewConfig("Example App", mustGetEnv("101549ce7776071f41c36184c4e7ded4df588948"))
+	cfg := newrelic.NewConfig("Example App", "101549ce7776071f41c36184c4e7ded4df588948")
 	cfg.Logger = newrelic.NewDebugLogger(os.Stdout)
 
 	var err error
