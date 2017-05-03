@@ -28,5 +28,5 @@ func main() {
 
 	// Wrap helloHandler.  The performance of this handler will be recorded.
 	http.HandleFunc(newrelic.WrapHandleFunc(app, "/", helloHandler))
-	http.ListenAndServe(":8000", nil)
+	http.ListenAndServe(":8001", nil)
 }
